@@ -21,18 +21,15 @@ phases:
   build:
     commands:
       - echo "Entering build phase..."
-      # Run linting (optional, but good practice)
+      # Run linting
       - echo "Running linter..."
-      - ng lint
-      # Run tests (if karma.conf.js and test files are set up)
-      # Use --configuration ci for headless testing if configured in angular.json
-      # Or use --browsers=ChromeHeadless if not using a specific CI config
+      - npx ng lint  # <-- Add npx here
+      # Run tests (if enabled)
       # - echo "Running unit tests..."
-      # - ng test --watch=false --browsers=ChromeHeadless
-      # Build the Angular application for production
+      # - npx ng test --watch=false --browsers=ChromeHeadless # <-- Add npx here if using tests
+      # Build the Angular application
       - echo "Building Angular application for production..."
-      # Uses the 'production' configuration from angular.json
-      - ng build --configuration production
+      - npx ng build --configuration production # <-- Add npx here
       - echo "Build completed on `date`"
 
   post_build:
