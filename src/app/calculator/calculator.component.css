@@ -1,0 +1,127 @@
+.calculator-container {
+  /* Change background to blue, remove border/shadow */
+  background-color: #007bff; /* Standard Bootstrap blue, adjust if needed */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px; /* Adjusted width slightly */
+  margin: 20px auto;
+  font-family: sans-serif;
+  color: white; /* Default text color inside */
+}
+
+.calculator-container h2 {
+  text-align: left; /* Align heading to left */
+  margin-bottom: 20px;
+  color: white; /* Heading color */
+  font-weight: normal; /* Match image font weight */
+  font-size: 1.5em;
+}
+
+.input-row {
+  display: flex;
+  /* Use space-between for spacing, consider gap for minimum spacing */
+  justify-content: space-between;
+  align-items: center; /* Vertically align items */
+  margin-bottom: 15px;
+  gap: 15px; /* Add gap between items */
+}
+
+/* Style inputs and select to be visible on blue background */
+.input-row input[type="number"],
+.input-row select {
+  padding: 10px;
+  border: 1px solid #ccc; /* Keep a light border */
+  border-radius: 4px;
+  font-size: 1em;
+  flex: 1; /* Allow elements to grow */
+  background-color: white; /* White background for inputs */
+  color: #333; /* Dark text inside inputs */
+  min-width: 100px; /* Minimum width */
+}
+
+/* Make select placeholder look like input placeholder */
+select:required:invalid {
+  color: #6c757d; /* Placeholder color */
+}
+option[value=""][disabled] {
+  display: none; /* Hide the disabled option after selection */
+}
+option {
+  color: #000; /* Options text color */
+}
+
+
+.button-row {
+  display: flex;
+  /* Buttons seem aligned to the right edge of the inputs row */
+  justify-content: flex-end;
+  margin-top: 10px; /* Adjust spacing */
+  gap: 10px;
+}
+
+button {
+  padding: 8px 15px; /* Slightly smaller padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em; /* Slightly smaller font */
+  font-weight: bold;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clear-btn {
+  background-color: #dc3545; /* Bootstrap red */
+  color: white;
+  border: 1px solid #dc3545;
+}
+
+.clear-btn:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.calc-btn {
+  background-color: #28a745; /* Bootstrap green */
+  color: white;
+  border: 1px solid #28a745;
+}
+
+.calc-btn:hover:not(:disabled) {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Error messages and results - style as needed or remove */
+.result {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9); /* Light background for result */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.1em;
+  text-align: center;
+  color: #333; /* Dark text for result */
+}
+
+.error-message {
+  color: #ffdddd; /* Light red/pink for errors on blue background */
+  font-size: 0.9em;
+  margin-top: 5px;
+  text-align: left; /* Align error messages */
+  /* Remove centering if preferred */
+  padding-left: 5px; /* Slight indent */
+}
+
+.result-error {
+  background-color: #f8d7da; /* Bootstrap danger background */
+  border-color: #f5c6cb;
+  color: #721c24; /* Bootstrap danger text */
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  text-align: center;
+}

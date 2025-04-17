@@ -1,0 +1,39 @@
+/* Add global or app-level styles here */
+main {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Styles for the new header content */
+.app-header {
+  padding: 10px 20px;
+  text-align: left; /* Align header text to left */
+  margin-bottom: 20px;
+  max-width: 600px; /* Match calculator width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-header h1 {
+  font-size: 1.8em; /* Adjust as needed */
+  margin-bottom: 15px;
+  color: #dc3545; /* Example: Use red color from image */
+  font-weight: bold;
+}
+
+.app-header .version-info {
+  display: inline-block; /* Keep on same line potentially */
+  background-color: #007bff; /* Blue background */
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.app-header p {
+  margin: 5px 0;
+  color: #6c757d; /* Grayish text color */
+  font-size: 0.95em;
+}

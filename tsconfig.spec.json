@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./out-tsc/spec",
+      "types": [
+        "jasmine"
+      ]
+    },
+    "files": [
+      "src/test.ts" // You would need to create this file if running 'ng test'
+    ],
+    "include": [
+      "src/**/*.spec.ts",
+      "src/**/*.d.ts"
+    ]
+  }

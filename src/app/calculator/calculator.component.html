@@ -1,0 +1,41 @@
+<div class="calculator-container">
+  <h2>Simple Calculator</h2>
+  <form [formGroup]="calculatorForm" (ngSubmit)="onSubmit()">
+    <div class="input-row">
+      <input type="number" placeholder="First Number" formControlName="firstInput" required>
+
+      <select formControlName="operator" required>
+        <option value="" disabled selected>Select + - / *</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+      </select>
+
+      <input type="number" placeholder="Second Number" formControlName="secondInput" required>
+    </div>
+
+    <div *ngIf="calculatorForm.controls['firstInput'].invalid && (calculatorForm.controls['firstInput'].dirty || calculatorForm.controls['firstInput'].touched)" class="error-message">
+      First number is required.
+    </div>
+    <div *ngIf="calculatorForm.controls['operator'].invalid && (calculatorForm.controls['operator'].dirty || calculatorForm.controls['operator'].touched)" class="error-message">
+      Operator is required.
+    </div>
+    <div *ngIf="calculatorForm.controls['secondInput'].invalid && (calculatorForm.controls['secondInput'].dirty || calculatorForm.controls['secondInput'].touched)" class="error-message">
+      Second number is required.
+    </div>
+
+    <div class="button-row">
+      <button type="button" class="clear-btn" (click)="onClear()">Clear</button>
+      <button type="submit" class="calc-btn" [disabled]="!calculatorForm.valid">Let's Calculate</button>
+    </div>
+  </form>
+
+  <div *ngIf="result !== null" class="result">
+    <strong>Result:</strong> {{ result }}
+  </div>
+  <div *ngIf="errorMessage !== null" class="error-message result-error">
+    {{ errorMessage }}
+  </div>
+
+</div>

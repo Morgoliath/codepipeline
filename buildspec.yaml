@@ -1,0 +1,52 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Installing Node.js version 18..."
+      - echo "Node version:"
+      - node -v
+      - echo "NPM version:"
+      - npm -v
+
+  pre_build:
+    commands:
+      - echo "Entering pre_build phase..."
+      # Use npm ci for clean, reproducible installs based on package-lock.json
+      - echo "Installing application dependencies using npm ci..."
+      - npm ci
+
+  build:
+    commands:
+      - echo "Entering build phase..."
+      # Run linting (optional, but good practice)
+      - echo "Running linter..."
+      - ng lint
+      # Run tests (if karma.conf.js and test files are set up)
+      # Use --configuration ci for headless testing if configured in angular.json
+      # Or use --browsers=ChromeHeadless if not using a specific CI config
+      # - echo "Running unit tests..."
+      # - ng test --watch=false --browsers=ChromeHeadless
+      # Build the Angular application for production
+      - echo "Building Angular application for production..."
+      # Uses the 'production' configuration from angular.json
+      - ng build --configuration production
+      - echo "Build completed on `date`"
+
+  post_build:
+    commands:
+      - echo "Entering post_build phase..."
+      - echo "Build process finished."
+
+artifacts:
+  # Adjust the base-directory based on your angular.json's outputPath
+  # For Angular 17+ with default 'application' builder, it's typically:
+  base-directory: dist/modern-calculator/browser
+  files:
+    - '**/*'
+
+# cache: # Optional: Uncomment to cache node_modules for potentially faster builds
+#   paths:
+#     - 'node_modules/**/*'
